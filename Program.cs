@@ -19,6 +19,10 @@ namespace SeDes
             foreach(var r in rockets){
                 System.Console.WriteLine($"ID:{r.ID} Builder:{r.Builder} Target:{r.Target} Speed:{r.Speed}");
             }
+            var ufos = JsonConvert.DeserializeObject<UFO[]>(json);
+            foreach (var ufo in ufos) {
+                System.Console.WriteLine($"Target:{ufo.Target} Speed:{ufo.Speed}");
+            }
         }
         static void Main(string[] args)
         {
