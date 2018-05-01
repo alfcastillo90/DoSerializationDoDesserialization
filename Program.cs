@@ -14,9 +14,19 @@ namespace SeDes
             var json = JsonConvert.SerializeObject(rockets);
             return json;
         }
+        public static void DoDesserialization(string json){
+            var rockets = JsonConvert.DeserializeObject<Rocket[]>(json);
+            foreach(var r in rockets){
+                System.Console.WriteLine($"ID:{r.ID} Builder:{r.Builder} Target:{r.Target} Speed:{r.Speed}");
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            var json = DoSerialization();
+            System.Console.WriteLine(json);
+            System.Console.WriteLine("===========");
+            DoDesserialization(json);
         }
     }
 }
